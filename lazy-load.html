@@ -1,0 +1,38 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`lazy-load`
+
+
+@demo demo/index.html
+-->
+
+<dom-module id="lazy-load">
+    <template>
+        <style>
+            :host {
+                display: none;
+            }
+        </style>
+    </template>
+    <script>
+        Polymer({
+            is: 'lazy-load',
+            properties: {
+                url: {
+                    type: String
+                },
+                load: {
+                    type: Boolean,
+                    observer: '_loadChanged'
+                }
+            },
+            _loadChanged: function() {
+                if(this.url) {
+                    var resolvedPageUrl = this.resolveUrl(this.url);
+                    this.importHref(resolvedPageUrl, null, null, true);
+                }
+            }
+        });
+    </script>
+</dom-module>

@@ -1,0 +1,30 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-selector/iron-selector.html">
+<link rel="import" href="lazy-load.html">
+<!--
+`lazy-loading`
+
+
+@demo demo/index.html
+-->
+
+<dom-module id="lazy-loading">
+    <template>
+        <style>
+            :host {
+                display: none;
+            }
+        </style>
+        <iron-selector
+            selected="[[selected]]"
+            attr-for-selected="[[attrForSelected]]"
+            selected-attribute="load">
+            <content select="lazy-load"></content>
+        </iron-selector>
+    </template>
+    <script>
+        Polymer({
+            is: 'lazy-loading'
+        });
+  </script>
+</dom-module>
