@@ -18,13 +18,25 @@
         <iron-selector
             selected="[[selected]]"
             attr-for-selected="[[attrForSelected]]"
+            fallback-selection="[[fallbackSelection]]"
             selected-attribute="load">
             <content select="lazy-load"></content>
         </iron-selector>
     </template>
     <script>
         Polymer({
-            is: 'lazy-loading'
+            is: 'lazy-loading',
+            properties: {
+                selected: {
+                    type: String
+                },
+                attrForSelected: {
+                    type: String
+                },
+                fallbackSelection: {
+                    type: String
+                }
+            }
         });
   </script>
 </dom-module>
